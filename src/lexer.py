@@ -17,9 +17,6 @@ class Lexer:
                 result = re.search(tokenType.regex, line)
                 content = re.search(tokenType.regex + r'(.*?)$', line)
 
-                print(result)
-                print(content)
-
                 if result is not None and content is not None:
                     self.tokenList.append(
                         Token(tokenType, content.group(1), line, row))
