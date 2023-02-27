@@ -7,6 +7,5 @@ def warn(
     filename: str,
     line: str,
     row: int,
-    title: str,
     description: str
 ): ...

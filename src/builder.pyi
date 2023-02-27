@@ -7,4 +7,5 @@ class Builder:
         self.html = html
         self.tokenList = tokenList
 
-    def build(self) -> None: ...
+    def build(self) -> None:
+        ...

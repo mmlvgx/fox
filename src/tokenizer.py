@@ -1,4 +1,4 @@
-from forms import PAR, TITLE
+from forms import PAR, TITLE, HEADER
 
 
 class TokenType:
@@ -23,6 +23,7 @@ class Token:
 
 
 tokenTypeList = [
-    TokenType(PAR, '#', r'\#'),
-    TokenType(TITLE, '@', r'\@')
+    TokenType(HEADER, '#', r'\#\s'),
+    TokenType(PAR, '.', r'\.\s'),
+    TokenType(TITLE, '@', r'\@\s')
 ]

@@ -1,5 +1,5 @@
 from annotations import Pattern
-from forms import PAR, TITLE
+from forms import PAR, TITLE, HEADER
 
 
 class TokenType:
@@ -29,6 +29,7 @@ class Token:
 
 
 tokenTypeList = [
-    TokenType('#', r'\#'),
-    TokenType('@', r'\@')
+    TokenType(HEADER, '#', r'\#'),
+    TokenType(PAR, '.', r'\.'),
+    TokenType(TITLE, '@', r'\@')
 ]

@@ -19,5 +19,3 @@ def compile(input__, output__=None):
 
     with open(output__, 'w') as _output:
         _output.write(html.html())
-
-compile('index.fox', 'out.html')

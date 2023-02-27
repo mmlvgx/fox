@@ -40,6 +40,7 @@ class Head(Element):
     def __init__(self, content: str = None) -> None:
         self.opening = OpeningTag('head')
         self.closing = ClosingTag('head')
+
         super().__init__(self.opening, content, self.closing)
 
 
@@ -47,6 +48,7 @@ class Body(Element):
     def __init__(self, content: str = None) -> None:
         self.opening = OpeningTag('body')
         self.closing = ClosingTag('body')
+
         super().__init__(self.opening, content, self.closing)
 
 
@@ -64,6 +66,14 @@ class TITLE(Element):
         self.closing = ClosingTag('title')
 
         super().__init__(self.opening, content, self.closing, 'head')
+
+
+class HEADER(Element):
+    def __init__(self, content):
+        self.opening = OpeningTag('h1')
+        self.closing = ClosingTag('h1')
+
+        super().__init__(self.opening, content, self.closing, 'body')
 
 
 class HTML:

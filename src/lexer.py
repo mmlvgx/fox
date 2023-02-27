@@ -1,5 +1,5 @@
-import re
-
+from re import search
+from warning import warn
 from tokenizer import tokenTypeList
 from tokenizer import Token
 
@@ -9,16 +9,33 @@ class Lexer:
         self.lineList = lineList
         self.tokenList = tokenList
 
-    def analyze(self):
+    def analyze(self, filename):
+        print(self.lineList)
+
         for line in self.lineList:
             row = self.lineList.index(line) + 1
 
             for tokenType in tokenTypeList:
-                result = re.search(tokenType.regex, line)
-                content = re.search(tokenType.regex + r'(.*?)$', line)
+                result = search(tokenType.regex, line)
+                content = search(tokenType.regex + r'(.*?)$', line)
 
-                if result is not None and content is not None:
-                    self.tokenList.append(
-                        Token(tokenType, content.group(1), line, row))
+                if result is None:
+                    continue
+                elif content is None:
+                    continue
+                else:
+                    break
+
+            if result is None:
+                warn(filename, line, row, 'Unknown Type')
+                continue
+            if content is None:
+                warn(filename, line, row, 'Can not handle')
+                continue
+
+            self.tokenList.append(
+                Token(tokenType, content.group(1), line, row))
+
+            continue
 
         return self.tokenList
