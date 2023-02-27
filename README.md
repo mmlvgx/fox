@@ -6,5 +6,4 @@ fox - is a humane markup language
 ```
 @ Title
 # Hello!!!
-How are you?
 ```
